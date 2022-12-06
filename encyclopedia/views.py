@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django import forms
 from django.http import HttpResponse
 import markdown2
+import random
 
 from . import util
 
@@ -34,3 +35,12 @@ def search_form(request):
             search_tag = form.cleaned_data["search_tag"]
             return render(request, "encyclopedia/pages.html",
                 {'content': markdown2.markdown(util.get_entry(search_tag)), 'form': form})
+
+def random_page(request):
+    form = SearchForm()
+    if request.method == "POST":
+        return search_form(request)
+    list = util.list_entries()
+    item = random.choice(list)
+    return render(request, "encyclopedia/pages.html",
+        {'content': markdown2.markdown(util.get_entry(item)), "form": form})

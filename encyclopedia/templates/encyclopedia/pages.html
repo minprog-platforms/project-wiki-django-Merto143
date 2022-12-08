@@ -9,3 +9,11 @@
     {{ content|safe }}
 
 {% endblock %}
+
+{% block edit %}
+
+<div>
+    <a href="{% url 'edit' title=title %}">Edit {{ title }} Page</a>
+</div>
+
+{% endblock %}

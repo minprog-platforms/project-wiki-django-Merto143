@@ -82,6 +82,7 @@ def edit(request, title):
 
             return render(request, "encyclopedia/pages.html",
                 {'content': markdown2.markdown(util.get_entry(title)), 'form': form, 'title':title})
+
     if util.get_entry(title) != None:
         return render(request, "encyclopedia/edit_page.html", {"form": form, "edit":edit, "title":title})
     else:

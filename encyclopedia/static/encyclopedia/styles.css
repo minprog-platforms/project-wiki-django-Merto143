@@ -36,3 +36,9 @@ textarea {
 .sidebar h2 {
     margin-top: 5px;
 }
+
+.search2 {
+    width: 10%;
+    font-size: 15px;
+    line-height: 15px;
+}
